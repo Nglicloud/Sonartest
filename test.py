@@ -48,5 +48,5 @@ def faulty_function():
 # 🚨 9. Hardcoded File Paths (Security Issue)
 def read_file():
     file = open("/home/user/secret.txt", "r")  # Hardcoded path
-    print(file.read())
+    print file.read()
 

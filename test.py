@@ -7,6 +7,13 @@ def greet(name)
 # 🚨 2. Security Vulnerability - Hardcoded Password
 DB_PASSWORD = "SuperSecret123"  # Hardcoded credentials are unsafe
 
+# 🚨 1. Syntax Error - Missing colon (SyntaxError)
+def greet(name)
+    print("Hello, " + name)
+
+# 🚨 2. Security Vulnerability - Hardcoded Password
+DB_PASSWORD = "SuperSecret123"  # Hardcoded credentials are unsafe
+
 def connect_to_db():
     # 🚨 3. Security Vulnerability - SQL Injection Risk
     user_input = input("Enter username: ")

@@ -4,10 +4,6 @@ import os
 def greet(name)
     print("Hello, " + name)
 
-# 🚨 1. Syntax Error - Missing colon (SyntaxError)
-def greet(name)
-    print("Hello, " + name)
-
 # 🚨 2. Security Vulnerability - Hardcoded Password
 DB_PASSWORD = "SuperSecret123"  # Hardcoded credentials are unsafe
 

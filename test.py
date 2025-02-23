@@ -18,8 +18,6 @@ def connect_to_db():
 def add_numbers(a, b):
     return a + b
 
-def sum_numbers(a, b):  # Duplicate of add_numbers()
-    return a + b
 
 # 🚨 5. Code Smell - Large Function with Multiple Responsibilities
 def process_data(data):

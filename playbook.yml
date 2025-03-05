@@ -1,0 +1,29 @@
+- name: Install and Configure HTTPD
+  hosts: all
+  become: yes  # Run tasks as sudo
+  tasks:
+    - name: Install HTTPD
+      ansible.builtin.yum:
+        name: httpd
+        state: present
+
+    - name: Start and Enable HTTPD Service
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: yes
+
+    - name: Open Port 80 in Firewalld (if firewalld is installed)
+      ansible.builtin.shell: |
+        firewall-cmd --permanent --add-service=http || true
+        firewall-cmd --reload || true
+      when: ansible_facts['os_family'] == "RedHat"
+  
+    - name: Verify HTTPD is Running
+      ansible.builtin.shell: systemctl is-active httpd
+      register: httpd_status
+      changed_when: false
+
+    - name: Display HTTPD Status
+      debug:
+        msg: "HTTPD service is {{ httpd_status.stdout }}"

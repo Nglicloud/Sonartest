@@ -1,5 +1,5 @@
 - name: Install and Configure HTTPD
-  hosts: all
+  hosts: nodes
   become: yes  # Run tasks as sudo
   tasks:
     - name: Install HTTPD
